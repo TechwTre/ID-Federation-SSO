@@ -28,7 +28,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Actions and Observations</h2>
 
-Step 1: The first thing we are going to do is create a resource group so we can put both of our virtual machines in. Once we have our resource group made we then want to make our first virtual machine. The first virtual machine we are going to make is a Windows 10 vm. Select the resource you made, and then name the virtual machine VM1. Make sure you select Windows 10 Pro, version 22H as the operating system. As for the size of the machine we are going to want atleast 2 vcpus, and 16 gb of memory. Create a username and password of your choosing, and keep the inbound port rules as the default options.
+The first thing we are going to do is create a resource group so we can put both of our virtual machines in. Once we have our resource group made we then want to make our first virtual machine. The first virtual machine we are going to make is a Windows 10 vm. Select the resource you made, and then name the virtual machine VM1. Make sure you select Windows 10 Pro, version 22H as the operating system. As for the size of the machine we are going to want atleast 2 vcpus, and 16 gb of memory. Create a username and password of your choosing, and keep the inbound port rules as the default options.
 <p>
  
 <img src="https://imgur.com/WgPD275.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -39,7 +39,7 @@ Step 1: The first thing we are going to do is create a resource group so we can 
 </p>
 <br />
   
-Step 2: After this step we are going to click on next until we get to the networking page and it should automatically create a virtual network and subnet for us. 
+After this step we are going to click on next until we get to the networking page and it should automatically create a virtual network and subnet for us. 
   
 <img src="https://imgur.com/XzdSPoR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -70,19 +70,19 @@ The networking should automatically give us the virtual network from VM1 as well
 Click review and create, and it will create our second VM.
 </p>
 
-Step 3: Now that we have both virtual machines up and running we are going to connect to our Windows 10 vm using the remote desktop connection app. Once we are connected we are going to go to our browser and download and install Wireshark.
+Now that we have both virtual machines up and running we are going to connect to our Windows 10 vm using the remote desktop connection app. Once we are connected we are going to go to our browser and download and install Wireshark.
 </p>
 
 "Wireshark is a free and open-source packet analyzer. It is used for network troubleshooting, analysis, software and communications protocol development, and education." 
  
-Step 4: Open wireshark and filter for ICMP traffic only.
+Open wireshark and filter for ICMP traffic only.
 </p>
 
 <img src="https://imgur.com/RrtChUe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
  
-Step 5: We are going to want to retrieve the private IP address of our Ubuntu VM and then attempt to ping it from within our Windows 10 VM using wireshark. To ping the private IP address of the Ubuntu machine open CMD or Powershell on the Windows machine and type: ping 10.0.0.5 or whatever the private IP address is for your Ubuntu machine.
+We are going to want to retrieve the private IP address of our Ubuntu VM and then attempt to ping it from within our Windows 10 VM using wireshark. To ping the private IP address of the Ubuntu machine open CMD or Powershell on the Windows machine and type: ping 10.0.0.5 or whatever the private IP address is for your Ubuntu machine.
 </p>
 
 <img src="https://imgur.com/zmJzyne.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -96,25 +96,27 @@ Step 5: We are going to want to retrieve the private IP address of our Ubuntu VM
 In either CMD or Powershell ping www.google.com and observe the traffic in wireshark.
 </p>
 
-Step 6: We then are going to initiate a non-stop ping from our Windows 10 VM to our Ubuntu VM.
+We then are going to initiate a non-stop ping from our Windows 10 VM to our Ubuntu VM.
 </p>
 
-Step 7: Open the Network Security Group of our Ubuntu machine and disable incoming (inbound) ICMP traffic. To disable incoming ICMP traffic click "Add" new rule and copy everything exactly from the picture. Once that is done you can create the rule and it will create automatically and show up as a new rule.
+Open the Network Security Group of our Ubuntu machine and disable incoming (inbound) ICMP traffic. To disable incoming ICMP traffic click "Add" new rule and copy everything exactly from the picture. Once that is done you can create the rule and it will create automatically and show up as a new rule.
 </p>
 
 <img src="https://imgur.com/r3dH3Yy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
+
+Now that we have disabled incoming ICMP traffic from VM2 if we go back to VM1 you can see the ping request is timing out. 
  
+Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
+Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity (should start working)
+Stop the ping activity
+
 <img src="https://imgur.com/qiSIrsX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <br />
 
-Now that we have disabled incoming ICMP traffic from VM2 if we go back to VM1 you can see the ping request is timing out. 
- 
-Step 8: Re-enable ICMP traffic for the Network Security Group your Ubuntu VM is using
-Back in the Windows 10 VM, observe the ICMP traffic in WireShark and the command line Ping activity (should start working)
-Stop the ping activity
+
  
  
  
