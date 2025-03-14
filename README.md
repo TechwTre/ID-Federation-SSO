@@ -92,12 +92,7 @@ print(get_oauth2_token())
 
 ---
 
-## 📜 License
-This project is open-source and available for educational use.
 
----
-### ⭐ Show Some Love
-If this project helps you, star it on GitHub! ⭐
  
  
  
