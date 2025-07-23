@@ -1,17 +1,17 @@
 # Identity Federation & SSO Setup
 
-## 📌 Project Overview
+## Project Overview
 This project demonstrates **Identity Federation** using **SAML, OAuth2, and OpenID Connect** with **Okta**, enabling seamless **Single Sign-On (SSO)** across multiple applications.
 
-## 🚀 Features
-- 🔑 **SAML-Based Identity Federation Setup**
-- 🌐 **OAuth2 & OpenID Connect for Cross-Domain SSO**
-- 🔄 **User Authentication Flow with Identity Provider (IdP)**
-- 🏗 **Okta Integration for Federated Authentication**
+## Features
+- **SAML-Based Identity Federation Setup**
+- **OAuth2 & OpenID Connect for Cross-Domain SSO**
+- **User Authentication Flow with Identity Provider (IdP)**
+- **Okta Integration for Federated Authentication**
 
 ---
 
-## 🛠 Prerequisites
+## Prerequisites
 - [ ] Okta Developer Account ([Sign up for free](https://developer.okta.com/))
 - [ ] Python 3.x installed
 - [ ] SAML Service Provider (SP) Setup
@@ -19,7 +19,7 @@ This project demonstrates **Identity Federation** using **SAML, OAuth2, and Open
 
 ---
 
-## 🔧 Setup Instructions
+## Setup Instructions
 
 ### 1️⃣ Clone the Repository
 ```bash
@@ -48,7 +48,7 @@ python setup_federation.py
 
 ---
 
-## 📝 Example Code
+## Example Code
 
 ### Setting Up a SAML Authentication Request
 ```python
